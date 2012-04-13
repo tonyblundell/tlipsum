@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <title>T'Lipsum - Yorkshire Lorem Ipsum Generator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+
+    <style type="text/css">
+        html, body, div, span, h1, p, a, img { margin: 0; padding: 0; border: 0;
+        outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+        body { width: 950px; margin: 1em auto; line-height: 1;
+        font-family: Verdana, Geneva, sans-serif; background: #f9f9f9; color: #333; }
+        h1 { font-size: 2em; font-weight: bold; }
+        p { margin-bottom: 1em; }
+        p.last { margin-bottom: 2em; }
+        .header { margin-bottom: 2em; }
+        .about { float: left; }
+        .tagline { font-size: 1.5em; color: #666; }
+        .tagline a { color: #666; }
+        .social { float: right; }        
+        .clearfix { clear:  both; }
+        .footer { text-align: right;  color: #666; }
+        .footer a { color: #666; }
+    </style>
+
+    {% if share_this_num %}
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'{{ share_this_num }}'});</script>
+    {% endif %}
+
+    {% if analytics_num %}
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '{{ analytics_num }}']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    {% endif %}
+
+</head>
+<body>    
+    <div class="header">
+        <span class="about">
+            <h1>T'Lipsum</h1>
+            <span class="tagline">A Yorkshire Lorem Ipsum <a href="/">Generator</a> for Yorkshire Folks!</span>
+        </span>
+
+        {% if share_this_num %}
+            <span class="social"><span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span></span>
+        {% endif %}
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div>
+    {% for paragraph in paragraphs %}
+        <p {% if forloop.last %}class="last"{% endif %}>{{ paragraph }}</p>
+    {% endfor %}
+    </div>
+
+    <div class="footer">by <a href="http://twitter.com/tonyblundell">@tonyblundell</a> | <a href="http://github.com/tonyblundell/tlipsum">Fork me on GitHub</a></div>
+</body>
